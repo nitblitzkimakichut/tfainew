@@ -4,6 +4,7 @@
 
 [build.environment]
   NODE_VERSION = "18"
+  GO_VERSION = "1.19"
 
 # Redirects for single-page application
 [[redirects]]
