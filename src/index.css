@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom cursor */
+* {
+  cursor: none;
+}
+
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(96, 165, 250, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.2s ease;
+  backdrop-filter: blur(4px);
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.hover {
+  transform: scale(1.5);
+  background: rgba(96, 165, 250, 0.1);
+  border-color: #93C5FD;
+}
+
+/* Enhanced background */
+.gradient-bg {
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(17, 24, 39, 0.8) 0%, transparent 50%),
+    radial-gradient(circle at 100% 0%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(17, 24, 39, 0.8) 0%, transparent 50%),
+    #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(45deg, rgba(37, 99, 235, 0.05) 25%, transparent 25%) -50px 0,
+    linear-gradient(-45deg, rgba(37, 99, 235, 0.05) 25%, transparent 25%) -50px 0,
+    linear-gradient(45deg, transparent 75%, rgba(37, 99, 235, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(37, 99, 235, 0.05) 75%);
+  background-size: 100px 100px;
+  opacity: 0.3;
+  z-index: 0;
+  animation: gradientMove 15s linear infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100px 100px;
+  }
+}
+
+/* Card gradient */
+.card-gradient {
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(96, 165, 250, 0.1);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(96, 165, 250, 0.05),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.card-gradient:hover::before {
+  left: 100%;
+}
+
+/* Button styles */
+.scale-button {
+  background: linear-gradient(
+    90deg,
+    rgba(37, 99, 235, 1) 0%,
+    rgba(59, 130, 246, 1) 100%
+  );
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.scale-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.scale-button:hover::before {
+  left: 100%;
+}
+
+.scale-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Navigation styles */
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(37, 99, 235, 1) 0%,
+    rgba(59, 130, 246, 1) 100%
+  );
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Form styles */
+.scale-input {
+  background: rgba(17, 24, 39, 0.7);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  transition: all 0.3s ease;
+}
+
+.scale-input:focus {
+  border-color: rgba(96, 165, 250, 0.5);
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.animate-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animate-delay-300 {
+  animation-delay: 300ms;
+}
